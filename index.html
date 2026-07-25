@@ -39,20 +39,19 @@
             position: relative;
         }
 
-        /* Background Effects */
         #particles-js {
             position: absolute;
             width: 100%;
             height: 100%;
             z-index: 1;
-            opacity: 0.3;
+            opacity: 0.35;
         }
 
         .bg-gradient-blob {
             position: absolute;
             border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.12;
+            filter: blur(120px);
+            opacity: 0.15;
             z-index: 0;
         }
 
@@ -79,19 +78,18 @@
             50% { transform: translate(50px, -50px); }
         }
 
-        /* Container */
         .container {
             position: relative;
             z-index: 10;
             width: 90%;
-            max-width: 550px;
-            padding: 56px 48px;
-            border-radius: 40px;
-            background: rgba(15, 15, 15, 0.85);
-            backdrop-filter: blur(35px) saturate(150%);
-            -webkit-backdrop-filter: blur(35px) saturate(150%);
+            max-width: 500px;
+            padding: 50px 40px;
+            border-radius: 36px;
+            background: rgba(12, 12, 12, 0.75);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
             border: 1px solid var(--border-glass);
-            box-shadow: 0 60px 120px rgba(0, 0, 0, 0.4), inset 0 1px 0 var(--border-glass-hover);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6), inset 0 1px 0 var(--border-glass-hover);
             animation: container-fade 0.9s cubic-bezier(0.2, 1, 0.2, 1);
             text-align: center;
         }
@@ -99,7 +97,7 @@
         @keyframes container-fade {
             from {
                 opacity: 0;
-                transform: scale(0.93) translateY(20px);
+                transform: scale(0.95) translateY(20px);
             }
             to {
                 opacity: 1;
@@ -111,24 +109,23 @@
             content: '';
             position: absolute;
             inset: 0;
-            border-radius: 40px;
+            border-radius: 36px;
             padding: 1.5px;
-            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-orange) 100%);
+            background: linear-gradient(135deg, rgba(0, 122, 255, 0.5) 0%, rgba(255, 149, 0, 0.5) 100%);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
-            opacity: 0.4;
-            animation: border-shimmer 3s ease-in-out infinite;
+            opacity: 0.5;
+            animation: border-shimmer 4s ease-in-out infinite;
             pointer-events: none;
         }
 
         @keyframes border-shimmer {
             0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.6; }
+            50% { opacity: 0.8; }
         }
 
-        /* Status Badge */
         .status-badge {
             display: inline-flex;
             align-items: center;
@@ -136,82 +133,81 @@
             background: linear-gradient(135deg, rgba(255, 149, 0, 0.15), rgba(255, 149, 0, 0.05));
             border: 1px solid rgba(255, 149, 0, 0.3);
             color: var(--accent-orange);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 13px;
             font-weight: 700;
             letter-spacing: 0.5px;
-            margin-bottom: 32px;
+            margin-bottom: 30px;
             backdrop-filter: blur(10px);
-            animation: badge-pulse 2s ease-in-out infinite;
+            box-shadow: 0 4px 20px rgba(255, 149, 0, 0.1);
         }
 
         .status-dot {
-            width: 6px;
-            height: 6px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: var(--accent-orange);
             animation: dot-pulse 2s ease-in-out infinite;
         }
 
-        @keyframes badge-pulse {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
-        }
-
         @keyframes dot-pulse {
             0%, 100% { 
-                opacity: 0.4;
-                box-shadow: 0 0 0 0 rgba(255, 149, 0, 0.7);
+                opacity: 0.5;
+                box-shadow: 0 0 0 0 rgba(255, 149, 0, 0.8);
             }
             50% {
                 opacity: 1;
-                box-shadow: 0 0 0 6px rgba(255, 149, 0, 0);
+                box-shadow: 0 0 0 8px rgba(255, 149, 0, 0);
             }
         }
 
-        /* Icon */
-        .icon {
-            font-size: 80px;
-            margin-bottom: 28px;
-            display: inline-block;
-            animation: icon-float 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            filter: drop-shadow(0 0 20px rgba(255, 149, 0, 0.3));
+        .icon-wrapper {
+            margin-bottom: 24px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            animation: icon-float 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            filter: drop-shadow(0 10px 25px rgba(255, 149, 0, 0.4));
+        }
+
+        .icon-wrapper svg {
+            width: 72px;
+            height: 72px;
         }
 
         @keyframes icon-float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-12px); }
+            50% { transform: translateY(-10px); }
         }
 
-        /* Heading */
         h1 {
-            font-size: 42px;
+            font-size: 38px;
             font-weight: 800;
-            margin-bottom: 12px;
-            letter-spacing: -1.2px;
-            line-height: 1.15;
-            background: linear-gradient(180deg, #ffffff 0%, #ffffff 70%, var(--accent-orange) 100%);
+            margin-bottom: 14px;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            background: linear-gradient(180deg, #ffffff 0%, #e0e0e0 60%, var(--accent-orange) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        /* Description */
         .description {
             font-size: 15px;
             color: var(--text-secondary);
-            margin-bottom: 40px;
-            line-height: 1.8;
+            margin-bottom: 35px;
+            line-height: 1.7;
+            padding: 0 10px;
         }
 
-        /* Maintenance Progress */
         .maintenance-progress {
-            margin-bottom: 40px;
-            padding: 24px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 24px;
+            margin-bottom: 35px;
+            padding: 22px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
             border: 1px solid var(--border-glass);
+            box-shadow: inset 0 2px 15px rgba(0,0,0,0.5);
         }
 
         .progress-label {
@@ -219,49 +215,55 @@
             color: var(--text-tertiary);
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 16px;
+            letter-spacing: 1.5px;
+            margin-bottom: 14px;
         }
 
         .progress-bar {
             width: 100%;
-            height: 6px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
             overflow: hidden;
             position: relative;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
         }
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-light), var(--accent-orange));
-            border-radius: 10px;
-            animation: progress-animate 2s ease-in-out infinite;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-blue-light), var(--accent-orange), var(--accent-red));
+            background-size: 200% 100%;
+            border-radius: 12px;
+            animation: progress-animate 3s ease-in-out infinite, gradient-shift 4s linear infinite;
         }
 
         @keyframes progress-animate {
-            0% { width: 30%; }
-            50% { width: 70%; }
-            100% { width: 30%; }
+            0% { width: 40%; }
+            50% { width: 85%; }
+            100% { width: 40%; }
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 100% 0; }
+            100% { background-position: -100% 0; }
         }
 
         .progress-text {
             font-size: 13px;
             color: var(--text-secondary);
-            margin-top: 12px;
-            text-align: center;
+            margin-top: 14px;
+            font-weight: 500;
         }
 
-        /* Buttons */
         .button-group {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
 
         .btn {
-            padding: 14px 32px;
-            border-radius: 16px;
+            padding: 16px 32px;
+            border-radius: 18px;
             font-weight: 700;
             font-size: 14px;
             font-family: 'Space Grotesk', sans-serif;
@@ -271,110 +273,231 @@
             border: none;
             cursor: pointer;
             letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .btn:hover::after {
+            left: 100%;
+        }
+
+        .btn-donate {
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-red));
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 149, 0, 0.3);
+        }
+
+        .btn-donate:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(255, 149, 0, 0.5);
         }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-blue-light));
             color: white;
-            box-shadow: 0 10px 30px rgba(0, 122, 255, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 122, 255, 0.3);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 122, 255, 0.5);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.05);
             color: var(--text-primary);
             border: 1px solid var(--border-glass-hover);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: var(--accent-blue);
-            color: var(--accent-blue);
-            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--text-secondary);
+            transform: translateY(-4px);
         }
 
-        /* Responsive */
+        .modal {
+            display: flex;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: rgba(18, 18, 18, 0.95);
+            border: 1px solid rgba(255, 149, 0, 0.4);
+            border-radius: 32px;
+            padding: 40px 30px;
+            width: 88%;
+            max-width: 360px;
+            text-align: center;
+            position: relative;
+            transform: scale(0.9) translateY(30px);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 149, 0, 0.15);
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            color: var(--text-secondary);
+            font-size: 26px;
+            line-height: 1;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            color: var(--accent-red);
+            background: rgba(255, 59, 48, 0.1);
+            border-color: rgba(255, 59, 48, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .modal-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+            background: linear-gradient(90deg, #fff, #ffd6a5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .modal-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .qris-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .qris-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-red));
+            border-radius: 22px;
+            z-index: -1;
+            filter: blur(10px);
+            opacity: 0.5;
+        }
+
+        .qris-img {
+            width: 100%;
+            max-width: 240px;
+            border-radius: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            padding: 14px;
+            background: #ffffff; 
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+
+        .modal-footer {
+            font-size: 13px;
+            color: var(--text-tertiary);
+            font-weight: 500;
+        }
+
         @media (max-width: 600px) {
             .container {
                 width: 92%;
                 max-width: 100%;
-                padding: 40px 28px;
+                padding: 40px 25px;
                 border-radius: 32px;
             }
 
-            h1 {
-                font-size: 32px;
+            h1 { font-size: 32px; }
+            .icon-wrapper svg { width: 60px; height: 60px; }
+            .description { font-size: 14px; }
+            .button-group { gap: 12px; }
+            .btn { padding: 14px 24px; font-size: 13px; }
+            
+            .modal-content {
+                padding: 35px 25px;
             }
-
-            .icon {
-                font-size: 64px;
-                margin-bottom: 20px;
-            }
-
-            .description {
-                font-size: 14px;
-            }
-
-            .maintenance-timer {
-                gap: 12px;
-                padding: 16px;
-            }
-
-            .timer-value {
-                font-size: 24px;
-            }
-
-            .button-group {
-                gap: 10px;
-            }
-
-            .btn {
-                padding: 12px 24px;
-                font-size: 13px;
-            }
-        }
-
-        /* Utility */
-        .divider {
-            height: 1px;
-            background: var(--border-glass);
-            margin: 40px 0;
         }
     </style>
 </head>
 <body>
 
-    <!-- Background Blobs -->
     <div class="bg-gradient-blob blob-1"></div>
     <div class="bg-gradient-blob blob-2"></div>
 
-    <!-- Particles -->
     <div id="particles-js"></div>
 
-    <!-- Main Container -->
     <div class="container">
-        <!-- Status Badge -->
         <div class="status-badge">
             <div class="status-dot"></div>
             <span>Hello User..</span>
         </div>
 
-        <!-- Icon -->
-        <div class="icon">⚠️</div>
+        <div class="icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="url(#warning-grad)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <defs>
+                    <linearGradient id="warning-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ff9500" />
+                        <stop offset="100%" stop-color="#ff3b30" />
+                    </linearGradient>
+                </defs>
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+        </div>
 
-        <!-- Title -->
         <h1>Aplikasi Telah<br>Di Tutup.</h1>
 
-        <!-- Description -->
         <p class="description">
             Aplikasi Telah Di Tutup Sementara Waktu Oleh Owner Karna Kekurangan Dana.
         </p>
 
-        <!-- Maintenance Progress -->
         <div class="maintenance-progress">
             <div class="progress-label">Status Ditutup</div>
             <div class="progress-bar">
@@ -383,104 +506,83 @@
             <div class="progress-text">Silahkan Menunggu...</div>
         </div>
 
-        <!-- Divider -->
-        <div class="divider"></div>
-
-        <!-- Buttons -->
         <div class="button-group">
+            <button id="btnBukaDonasi" class="btn btn-donate">Donasi / Support 💖</button>
             <a href="https://t.me/hanzdevhmmodz" class="btn btn-primary">Hubungi Admin</a>
             <a href="javascript:location.reload()" class="btn btn-secondary">Refresh Aplikasi</a>
         </div>
     </div>
 
-    <!-- Particles JS -->
+    <div id="modalDonasi" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" id="btnCloseModal">&times;</button>
+            <h2 class="modal-title">Dukung Server Kami ☕</h2>
+            <p class="modal-subtitle">Scan QRIS di bawah ini untuk berdonasi</p>
+            
+            <div class="qris-wrapper">
+                <img src="qris.png" alt="QRIS Donasi" class="qris-img">
+            </div>
+            
+            <p class="modal-footer">Terima kasih banyak atas dukunganmu!</p>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        // Initialize Particles
         particlesJS("particles-js", {
             "particles": {
                 "number": {
-                    "value": 100,
-                    "density": {
-                        "enable": true,
-                        "value_area": 1000
-                    }
+                    "value": 110,
+                    "density": { "enable": true, "value_area": 1000 }
                 },
-                "color": {
-                    "value": ["#007aff", "#ff9500"]
-                },
-                "shape": {
-                    "type": "circle"
-                },
+                "color": { "value": ["#007aff", "#ff9500", "#ff3b30"] },
+                "shape": { "type": "circle" },
                 "opacity": {
-                    "value": 0.4,
-                    "random": true,
-                    "anim": {
-                        "enable": true,
-                        "speed": 0.8,
-                        "opacity_min": 0.1,
-                        "sync": false
-                    }
+                    "value": 0.5, "random": true,
+                    "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false }
                 },
-                "size": {
-                    "value": 4,
-                    "random": true
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 180,
-                    "color": "#007aff",
-                    "opacity": 0.2,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 1.5,
-                    "direction": "none",
-                    "random": true,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                    "attract": {
-                        "enable": false,
-                        "rotateX": 600,
-                        "rotateY": 1200
-                    }
-                }
+                "size": { "value": 4.5, "random": true },
+                "line_linked": { "enable": true, "distance": 160, "color": "#007aff", "opacity": 0.25, "width": 1 },
+                "move": { "enable": true, "speed": 1.5, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
             },
             "interactivity": {
                 "detect_on": "canvas",
                 "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "grab"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
                     "resize": true
                 },
                 "modes": {
-                    "grab": {
-                        "distance": 200,
-                        "line_linked": {
-                            "opacity": 0.5
-                        }
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    }
+                    "grab": { "distance": 220, "line_linked": { "opacity": 0.6 } },
+                    "push": { "particles_nb": 4 }
                 }
             },
             "retina_detect": true
         });
 
-        // Refresh particles on window resize
         window.addEventListener('resize', () => {
             if (window.pJSDom && window.pJSDom[0]) {
                 window.pJSDom[0].pJS.canvas.pJS.canvas.width = window.innerWidth;
                 window.pJSDom[0].pJS.canvas.pJS.canvas.height = window.innerHeight;
+            }
+        });
+
+        const modal = document.getElementById('modalDonasi');
+        const btnBuka = document.getElementById('btnBukaDonasi');
+        const btnTutup = document.getElementById('btnCloseModal');
+
+        btnBuka.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.add('show');
+        });
+
+        btnTutup.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
             }
         });
     </script>
